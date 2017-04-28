@@ -1,0 +1,135 @@
+@import "_variable.sass"
+@function bg($imageName)
+  @return url($image-path + $imageName)
+
+@function bgc($color,$opacity:1)
+  @return rgba($color,$opacity)
+
+=prefix($property,$value)
+  -webkit-#{$property}: $value
+  -o-#{$property}: $value
+  -moz-#{$property}: $value
+  -ms-#{$property}: $value
+  #{$property}: $value
+
+=ib($align:middle)
+  display: inline-block
+  vertical-align: $align
+
+=placeholders
+  &::-webkit-input-placeholder
+    @content
+
+  &:-moz-placeholder
+    @content
+
+  &::-moz-placeholder
+    @content
+
+  &:-ms-input-placeholder
+    @content
+
+  &:placeholder
+    @content
+
+=vam($left:50%,$top:50%)
+  position: absolute
+  left: $left
+  top: $top
+  +transform(translate(-($left),-($top)))
+
+=transform($prop...)
+  +prefix( 'transform',$prop)
+
+=sizing($prop)
+  +prefix( 'box-sizing',$prop)
+
+=break-word($prop)
+  +prefix( 'word-break',$prop)
+
+=clrfix
+  &:after
+    clear: both
+    content: ''
+    display: block
+
+
+
+=clear($count , $increment)
+  %clear,
+  .clear
+    clear: both
+
+  @for $i from 1 through $count
+    .clear#{$increment * $i}
+      @extend %clear
+      height: $increment * $i+px
+
+
+
+
+
+
+=socialMedia($ext, $prop...)
+  @each $list in $prop
+    .#{$list}
+      background: bg($list + ($ext))
+
+
+
+=wh($prop)
+  width: $prop
+  height: $prop
+
+
+=cg($col,$spc)
+  width: (100% - ($spc * ($col - 1))) / $col
+  margin-right: $spc
+  margin-bottom: $spc
+  float: left
+  &:nth-child(#{$col}n+#{$col})
+    margin-right: 0
+
+
+=mq($arg...)
+  @if type_of(nth($arg,1)) == string
+    @media (#{nth($arg,1)}-width: nth($arg,2))
+      @content
+  @else
+    @media (min-width: nth($arg,1)) and (max-width: nth($arg,2))
+      @content
+
+=mqh($arg...)
+  @if type_of(nth($arg,1)) == string
+    @media (#{nth($arg,1)}-height: nth($arg,2))
+      @content
+  @else
+    @media (min-height: nth($arg,1)) and (max-height: nth($arg,2))
+      @content
+
+
+
+
+
+=listItem($types...)
+  ol.list,
+  ul.list
+    margin-left: 27px
+    padding-bottom: 14px
+    font: rem(20) $sf
+    li
+      padding: 5px 0 5px 7px
+
+    &.bullet
+      margin-left: 10px
+      li
+        background: bg('bullet.png') no-repeat scroll left center rgba(0, 0, 0, 0)
+        padding: 5px 0 5px 18px
+
+  @each $listType in $types
+    ol.#{$listType},
+    ul.#{$listType}
+      li
+        list-style-type: $listType
+
+  /*Session error message end*/

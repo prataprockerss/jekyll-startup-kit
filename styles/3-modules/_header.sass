@@ -1,0 +1,88 @@
+.wrapper
+  padding-top: 55px
+.header
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  z-index: 25
+  background-color: #fff
+  +prefix('box-shadow', 0 0 15px bgc($pc,.2))
+  +clrfix
+  .logo
+    width: 140px
+    margin: auto
+    padding: 5px 20px
+    float: left
+    +mq(min,768px)
+      width: 40%
+      text-align: center
+    img
+      +mq(min,768px)
+        height: 44px
+  .header-left
+    float: left
+    +mq(min,768px)
+      width: 31%
+    .menu,.txt
+      +ib
+    .txt
+      display: none
+      +mq(min,768px)
+        display: inline-block
+
+  .header-right
+    float: right
+    text-align: right
+    +mq(min,768px)
+      width: 29%
+    .career-center,.search-cnt
+      +ib
+    .career-center
+      display: none
+      +mq(min,768px)
+        display: inline-block
+    .search-cnt
+      >button
+        +size(40px)
+
+.search-cnt
+  +mq(min,1025px)
+    position: relative
+  .check-form
+    text-align: left
+    background: #fff
+    +mq(max,1024px)
+      padding: 20px
+      position: fixed
+      right: -100%
+      top: 0
+      +size(100%)
+      +transition(all .3s $ease-in-expo)
+      opacity: 0
+      visibility: hidden
+      z-index: 20
+    +mq(min,1025px)
+      position: absolute
+      right: 0
+      top: 54px
+      box-shadow: 0 0 20px bgc($pc,.5)
+      width: 250px
+      padding: 0 10px
+      display: none
+  .toggle-btn
+    +size(50px)
+    font-size: 20px
+    position: relative
+    .fa
+      +vam
+
+.wrapper
+  &.search-opened
+    .check-form
+      +mq(max,1024px)
+        right: 0
+        opacity: 1
+        visibility: visible
+      +mq(min,1025px)
+        display: block

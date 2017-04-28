@@ -1,0 +1,19 @@
+markdown: kramdown
+
+baseurl: http://www.msapptech.in/clients/ecovar
+
+port: 8000
+title:
+sass:
+  sass_dir: styles
+  sourcemap: :true
+  style: compact
+
+exclude: ['_site','static-pages','.sass-cache','design']
+
+
+metadescription:
+metakeyword:
+
+img_url: images/site-seo.jpg
+encoding: utf-8
