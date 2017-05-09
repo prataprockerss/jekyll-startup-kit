@@ -29,3 +29,9 @@ socialMedia:
   - name: Instagram
     link: '#'
     className: instagram-square
+
+# import external scripts and styles
+# if you have maked any property to true it will render on entire page. 
+fontawesome: false  # http://fontawesome.io/
+slick: false  # http://kenwheeler.github.io/slick/
+lazyload: true # http://jquery.eisbehr.de/lazy/
