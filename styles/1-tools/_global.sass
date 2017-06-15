@@ -10,10 +10,8 @@ a
 
 body
   line-height: 1
-  font: rem($body-size) $pf
-  color: $body-color
   position: relative
-  background: $body-bg
+
 
 *
   +sizing(border-box)
@@ -25,6 +23,7 @@ body
 img
   max-width: 100%
   vertical-align: middle
+
 .container
   margin: 0 auto
   width: 96%
@@ -46,14 +45,7 @@ p
 
 // including clear
 +clear(3, 20)
-// heading property
-%h1,
-h1
-  color: $pc
-  font: rem($heading-size) $pf
-  padding-bottom: 12px
 
-+headings($heading-size-differnce)
 .desktop-only
   display: block
 

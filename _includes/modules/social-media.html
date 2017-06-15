@@ -1,9 +1,11 @@
 <div class="social-media">
   <ul>
-    {% for media in site.socialMedia %}
-      <li>
-        <a href="{{media.link}}" title="{{media.name}}"><i class="fa fa-{{media.className}}"></i></a>
-      </li>
+    {% for data in site.data.api%}
+      {% for media in data.socialMedia %}
+        <li>
+          <a href="{{media.link}}" title="{{media.name}}"><i class="fa fa-{{media.className}}"></i></a>
+        </li>
+      {% endfor %}
     {% endfor %}
   </ul>
 </div>

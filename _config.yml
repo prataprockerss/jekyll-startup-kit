@@ -1,8 +1,8 @@
-markdown: kramdown
+markdown: Redcarpet
 
-baseurl: http://www.msapptech.in/clients/ecovar
+baseurl:
 
-port: 8000
+port: 9000 # port for localhost
 title:
 sass:
   sass_dir: styles
@@ -18,20 +18,11 @@ metakeyword:
 img_url: images/site-seo.jpg
 encoding: utf-8
 
-# Social media configration
-socialMedia:
-  - name: Facebook
-    link: '#'
-    className: facebook-square
-  - name: Email
-    link: '#'
-    className: envelope
-  - name: Instagram
-    link: '#'
-    className: instagram-square
+
 
 # import external scripts and styles
-# if you have maked any property to true it will render on entire page. 
-fontawesome: false  # http://fontawesome.io/
+# if you have maked any property to true it will render on entire page.
+fontawesome: true  # http://fontawesome.io/
 slick: false  # http://kenwheeler.github.io/slick/
-lazyload: true # http://jquery.eisbehr.de/lazy/
+lazyload: false # http://jquery.eisbehr.de/lazy/
+jssocials: false # http://js-socials.com/

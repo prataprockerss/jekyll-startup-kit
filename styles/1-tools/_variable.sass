@@ -1,11 +1,32 @@
-$pf: 'Lato', sans-serif
-$sf: 'Droid Sans', sans-serif
+=mq($arg...)
+  @if type_of(nth($arg,1)) == string
+    @media (#{nth($arg,1)}-width: nth($arg,2))
+      @content
+  @else
+    @media (min-width: nth($arg,1)) and (max-width: nth($arg,2))
+      @content
+
+=mqh($arg...)
+  @if type_of(nth($arg,1)) == string
+    @media (#{nth($arg,1)}-height: nth($arg,2))
+      @content
+  @else
+    @media (min-height: nth($arg,1)) and (max-height: nth($arg,2))
+      @content
+
+
+$pf: 'Montserrat', sans-serif
+$sf: 'Open Sans', sans-serif
 
 
 $image-path:'../images/'
+
+
 $rootSize: 16px
 
 $cntMxWidth: 1200px
++mq(min,1600px)
+  $cntMxWidth: 1900px
 
 
 //colors in websites
@@ -14,8 +35,8 @@ $sc: complement($pc)
 $cv1: invert($pc)
 $cv2: invert($sc)
 
-$body-bg:#fff
-$link-color:#000
+$body-bg: #fff
+$link-color: #000
 
 
 // font sizes

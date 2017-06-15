@@ -1,5 +1,4 @@
-<script src="{{site.baseurl}}/scripts/jquery-min.js" charset="utf-8"></script>
-{%if site.slick == true or page.slick == true %}
+{% if site.slick == true or page.slick == true %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js" charset="utf-8"></script>
   <script src="{{site.baseurl}}/scripts/slick-calling.js" charset="utf-8"></script>
 {% endif%}
@@ -20,5 +19,17 @@
   })
 </script>
 {% endif %}
+
+{% if site.jssocials == true or page.jssocials == true %}
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-flat.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js"></script>
+<script type="text/javascript">
+  $(".share-tool").jsSocials({
+    shares: ["twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+  });
+</script>
+{% endif %}
+
 
 <script src="{{site.baseurl}}/scripts/common.js" charset="utf-8"></script>

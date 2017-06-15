@@ -1,0 +1,25 @@
+---
+layout: blog
+wrapperClass: blog-cnt
+pageClass: blog-page
+jssocials: true
+---
+<div class="blog-listing">
+  <ul>
+    {% for post in site.categories.news %}
+      <li>
+        <header>
+          <a href="{{site.baseurl}}{{post.url }}">
+            {{post.title}}
+          </a>
+        </header>
+        <main>
+          <img src="{{post.mainImg}}" alt="">
+        </main>
+        <footer>
+          {% include modules/share-tool.html class='share-fb' %}
+        </footer>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

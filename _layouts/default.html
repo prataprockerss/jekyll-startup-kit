@@ -5,10 +5,8 @@
     <div class="loader">
       <div></div>
     </div>
-    <div class="wrapper">
-      {% include header.html %}
+    <div class="wrapper {{page.wrapperClass}}">
       {{content}}
-      {% include footer.html %}
     </div>
     {% include scripts.html %}
   </body>
