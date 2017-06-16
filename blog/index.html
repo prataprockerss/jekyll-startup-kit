@@ -6,7 +6,7 @@ jssocials: true
 ---
 <div class="blog-listing">
   <ul>
-    {% for post in site.categories.news %}
+    {% for post in site.categories.electronics  %}
       <li>
         <header>
           <a href="{{site.baseurl}}{{post.url }}">
@@ -17,7 +17,7 @@ jssocials: true
           <img src="{{post.mainImg}}" alt="">
         </main>
         <footer>
-          {% include modules/share-tool.html class='share-fb' %}
+          {% include modules/share-tool.html class='share-small' width="550" %}
         </footer>
       </li>
     {% endfor %}
