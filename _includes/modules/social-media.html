@@ -1,4 +1,9 @@
 <div class="social-media">
+  {% if include.heading %}
+  <h2>
+    {{include.heading}}
+  </h2>
+  {% endif %}
   <ul>
     {% for data in site.data.api%}
       {% for media in data.socialMedia %}

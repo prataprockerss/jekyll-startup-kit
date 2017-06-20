@@ -12,10 +12,10 @@ sass:
 exclude: ['_site','static-pages','.sass-cache','design']
 
 
-metadescription:
+metadescription: "It seems that you haven't set {{site.metadescription}} or {{page.metadescription}}, It's very great for SEO please add it ASAP"
 metakeyword:
 
-img_url: images/site-seo.jpg
+mainImg: images/site-seo.jpg
 encoding: utf-8
 
 
