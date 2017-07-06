@@ -1,12 +1,18 @@
 .social-media
   ul
-    +clrfix
+    +clearfix
   li
     display: inline-block
     vertical-align: middle
     a
       display: block
-      +size(30px)
+      +size(40px)
       position: relative
+      background-color: darken($pc,20)
+      font-size: em(18)
+      border-radius: 50%
+      color: #fff
+      &:hover
+        background-color: darken($pc,30)
       .fa
         +vam

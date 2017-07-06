@@ -4,7 +4,9 @@
   </div>
   <div class="overlay">
     <div class="container">
-      <header>
-        {{include.title}}
-      </header>
+      {% if {{include.title}} %}
+        <header>
+          {{include.title}}
+        </header>
+      {% endif %}
       <main>
