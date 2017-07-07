@@ -10,6 +10,7 @@ $button-base-color: $pc
   outline: none
   +transition
   font-size: em(16)
+  +prefix('box-shadow',none)
   &:active,&:focus
     outline: none
 select
@@ -17,8 +18,9 @@ select
   padding: em(9px) em(10px)
   cursor: pointer
 textarea
-  resize: none
   height: $textarea-height
+  max-width: 100%
+  height: 120px
 
 input[type="checkbox"],
 input[type="radio"]
@@ -56,6 +58,12 @@ a,#{$all-buttons}
     display: block
     width: 100%
     margin: 0
+  &.btn-success
+    background-color: #4caf50
+  &.btn-danger
+    background-color: #F44336
+  &.btn-alert
+    background-color: #d6c105
   &.md
     font-size: em(14)
   &.sm
@@ -112,5 +120,129 @@ span,label
     padding: 4px 10px
     position: relative
 
+.checkbox
+  input[type="checkbox"]
+    position: absolute
+    left: 0
+    top: 0
+    opacity: 0
+    visibility: hidden
+    &:checked
+      \+label
+        &:before
+          background-color: $form-border-color
+        &:after
+          display: block
+  label
+    display: inline-block
+    position: relative
+    font-size: em(18)
+    padding-left: em(20)
+    cursor: pointer
+    &:before
+      border-radius: 3px
+      margin-right: em(5)
+      vertical-align: middle
+      border: 1px solid $form-border-color
+      left: 0
+    &:before,&:after
+      content: ''
+      display: inline-block
+      +size(em(15))
+      position: absolute
+      top: 50%
+      +transform(translateY(-50%))
+    &:after
+      font-family: $fa
+      content: '\f00c'
+      color: #fff
+      left: em(4px)
+      font-size: em(10)
+      display: none
+.radio
+  input[type="radio"]
+    position: absolute
+    left: 0
+    top: 0
+    opacity: 0
+    visibility: hidden
+    &:checked
+      \+label
+        &:before
+        &:after
+          background-color: $form-border-color
+          display: block
+  label
+    display: inline-block
+    position: relative
+    font-size: em(18)
+    padding-left: em(20)
+    cursor: pointer
+    &:before
+      border-radius: 3px
+      margin-right: em(5)
+      vertical-align: middle
+      border: 1px solid $form-border-color
+      left: 0
+      +size(em(15))
+    &:before,&:after
+      content: ''
+      display: inline-block
+      position: absolute
+      top: 50%
+      +transform(translateY(-50%))
+      border-radius: 50%
+    &:after
+      left: em(4px)
+      font-size: em(10)
+      display: none
+      +size(em(16))
+
+
 .form-layout
-  font-size: 20px
+  .form-row
+  .form-field
+    padding-bottom: em(10)
+    >label
+      padding-bottom: em(5)
+      display: block
+
+.form-layout
+  &.animated
+    position: relative
+    .form-field
+      position: relative
+      padding-bottom: 8px
+      &.static
+        >label
+          position: static
+          pointer-events: all
+        #{$all-text-inputs}
+          padding: em(10px) 0
+      &.error
+        > label
+          color: #a90000
+        #{$all-text-inputs}
+          border-color: #a90000
+          background-color: #fdeded
+          color: #a90000
+      #{$all-text-inputs},select,textarea
+        border-bottom: 1px solid $form-border-color
+        padding: em(20) em(10) em(10)
+      .error,.invalid_error
+        font-size: 11px
+        color: #f00
+        padding: 5px 0
+      >label
+        width: 98%
+        pointer-events: none
+        position: absolute
+        +prefix('transform-origin',left top)
+        left: em(10)
+        top: em(15px)
+        +transition
+        z-index: 2
+      &.focused
+        >label
+          top: em(5)
+          +transform(scale(0.8))
