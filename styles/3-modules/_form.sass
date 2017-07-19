@@ -197,8 +197,6 @@ span,label
       font-size: em(10)
       display: none
       +size(em(16))
-
-
 .form-layout
   .form-row
   .form-field
@@ -217,18 +215,17 @@ span,label
         >label
           position: static
           pointer-events: all
-        #{$all-text-inputs}
+        #{$all-text-inputs},select,textarea
           padding: em(10px) 0
       &.error
         > label
           color: #a90000
-        #{$all-text-inputs}
+        #{$all-text-inputs},select,textarea
           border-color: #a90000
           background-color: #fdeded
           color: #a90000
       #{$all-text-inputs},select,textarea
-        border-bottom: 1px solid $form-border-color
-        padding: em(20) em(10) em(10)
+        padding: em(20) em(10) em(8)
       .error,.invalid_error
         font-size: 11px
         color: #f00
