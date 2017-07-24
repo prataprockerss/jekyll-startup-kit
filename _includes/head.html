@@ -9,10 +9,10 @@
 
   <meta name='keywords' content="{% if page.metakeyword %} {{ page.metakeyword }} {{site.metakeyword}} {% else %} {{site.metakeyword}} {% endif%}" />
   <meta name='description' content='{% if page.metadescription %} {{ page.metadescription }} -- {{site.metadescription}} {% else %} {{site.metadescription}} {% endif%}' />
-  <meta property='og:title' content='{{site.title}}' />
-  <meta property='og:url' content='{{site.baseurl}}' />
+  <meta property='og:title' content='{% if page.title %}{{page.title}}{% else %}{{site.title}}{% endif%}' />
+  <meta property='og:url' content='{{site.baseurl}}{{page.url}}' />
   <meta property='og:type' content='website' />
-  <meta property='og:image' content='{% if page.mainImg %} {{site.baseurl}}/{{page.mainImg}} {% else %} {{site.baseurl}}/{{site.mainImg}} {% endif%}' />
+  <meta property='og:image' content='{% if page.mainImg %}{{site.baseurl}}/{{page.mainImg}}{% else %}{{site.baseurl}}/{{site.mainImg}}{% endif%}' />
   <meta property='og:site_name' content='{{site.title}}' />
   <meta property='og:description' content='{% if page.metadescription %} {{ page.metadescription }} {% else %} {{site.metadescription}} {% endif%}' />
 
