@@ -1,22 +1,60 @@
-=grid($ext,$totalClums:12)
-  .grid-layout
-    margin: 0 -1%
-    +clrfix
-  .grid-#{$ext}
-    float: left
-    padding: 0 1%
+$spacer: 1%
+.grid-layout
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  [class^='grid']
+    background: $pc
+    padding: 20px
+    border: 1px solid darken($pc,20)
+    margin-bottom: $spacer * 2
+    flex-basis: 100%
+=cssGrid($widthList,$spacer,$maxElement:30)
+  @if length($widthList) == 1
+    &:nth-child(n+0)
+      flex-basis: $widthList - $spacer
+  @else if length($widthList) == 2
+    @for $i from 1 through 2
+      @if ($i == 1)
+        &:nth-child(odd)
+          flex-basis: nth($widthList,$i) - $spacer
+      @if ($i == 2)
+        &:nth-child(even)
+          flex-basis: nth($widthList,$i) - $spacer
+  @else if length($widthList) > 2
+    $i: 1
+    @for $j from 1 through $maxElement
+      &:nth-child(#{$j})
+        flex-basis: nth($widthList,$i) - $spacer
+        $i: $i + 1
+        @if ($i > length($widthList))
+          $i: 1
 
+=grid($ext,$totalClums:12)
   @for $i from 1 through $totalClums
     $k: (100% / $totalClums)
-    .grid-#{$ext}-#{$i}
-      width: $k * $i
-      @extend .grid-#{$ext}
+    .grid-layout
+      .grid-#{$ext}-#{$i}
+        flex-basis:  ($k * $i) - $spacer
+
+
+.layout-1
+  .grid
+    +mq(min,768px)
+      +cssGrid(60% 40%,1% )
+    +mq(min,1200px)
+      +cssGrid((40% 20% 20% 20%),1%)
+    +mq(min,1600px)
+      +cssGrid(25%,1%)
+
 
 +mq(max,767px)
   +grid(xs)
-+mq(768px,1024px)
++mq(min,768px)
   +grid(md)
-+mq(1025px,1366px)
++mq(min,1025px)
   +grid(lg)
 +mq(min,1367px)
   +grid(xl)
