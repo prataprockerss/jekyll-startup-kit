@@ -1,22 +1,25 @@
 markdown: Redcarpet
-
+encoding: utf-8
 baseurl:
-
 port: 9000 # port for localhost
-title:
+
 sass:
   sass_dir: styles
   sourcemap: :true
   style: compact
 
-exclude: ['_site','static-pages','.sass-cache','design']
+exclude: ['_site','static-pages','.sass-cache','design','designs']
 
-
-metadescription: "It seems that you haven't set {{site.metadescription}} or {{page.metadescription}}, It's very great for SEO please add it ASAP"
+# SEO
+domain:
+metadescription:
 metakeyword:
-
 mainImg: images/site-seo.jpg
-encoding: utf-8
+title: Jekyll
+
+# Tracking
+googleAnalyticsId :  # eg. 'UA-67098409-1' to genrate this code visit on analytics.google.com
+
 
 
 
