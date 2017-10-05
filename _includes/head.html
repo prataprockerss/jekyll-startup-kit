@@ -11,7 +11,7 @@
   <meta property='og:title' content='{% if page.title %}{{page.title}}{% else %}{{site.title}}{% endif%}' />
   <meta property='og:url' content='{{site.domain}}{{page.url}}' />
   <meta property='og:type' content='website' />
-  <meta property='og:image' content='{% if page.mainImg %}{{site.baseurl}}/{{page.mainImg}}{% else %}{{site.baseurl}}/{{site.mainImg}}{% endif%}' />
+  <meta property='og:image' content='{% if page.metaImg %}{{site.domain}}/{{page.metaImg}}{% else %}{{site.domain}}/{{site.metaImg}}{% endif%}' />
   <meta property='og:site_name' content='{{site.title}}' />
   <meta property='og:description' content='{% if page.metadescription %} {{ page.metadescription }} {% else %} {{site.metadescription}} {% endif%}' />
   <!-- Meta tags for SEO -->
@@ -19,13 +19,13 @@
   <!-- Favicons -->
   <!--  genrate all favicons images from  https://realfavicongenerator.net/ -->
 
-  <link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/images/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/images/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/images/favicons/favicon-16x16.png">
-  <link rel="manifest" href="{{site.baseurl}}/images/favicons/manifest.json">
-  <link rel="mask-icon" href="{{site.baseurl}}/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="{{site.baseurl}}/images/favicons/favicon.ico">
-  <meta name="msapplication-config" content="{{site.baseurl}}/images/favicons/browserconfig.xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="images/favicons/manifest.json">
+  <link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="images/favicons/favicon.ico">
+  <meta name="msapplication-config" content="images/favicons/browserconfig.xml">
   <meta name="theme-color" content="#6e7980">
   <!-- Favicons -->
 
@@ -48,6 +48,9 @@
   {% if site.fontawesome == true  or  page.fontawesome == true %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   {% endif%}
-  <link rel="stylesheet" href="{{site.baseurl}}/styles/styles.css">
-  <script src="{{site.baseurl}}/scripts/jquery-min.js" charset="utf-8"></script>
+  {% for style in page.styles %}
+    <link rel="stylesheet" href="styles/ext/{{style}}.css">
+  {% endfor %}
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="scripts/jquery-min.js" charset="utf-8"></script>
 </head>
