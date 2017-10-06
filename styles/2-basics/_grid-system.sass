@@ -6,10 +6,6 @@ $spacer: 1%
   justify-content: space-between
   flex-wrap: wrap
   [class^='grid']
-    background: $pc
-    padding: 20px
-    border: 1px solid darken($pc,20)
-    margin-bottom: $spacer * 2
     flex-basis: 100%
 =cssGrid($widthList,$spacer,$maxElement:30)
   @if length($widthList) == 1
@@ -32,6 +28,7 @@ $spacer: 1%
         @if ($i > length($widthList))
           $i: 1
 
+
 =grid($ext,$totalClums:12)
   @for $i from 1 through $totalClums
     $k: (100% / $totalClums)
@@ -39,22 +36,15 @@ $spacer: 1%
       .grid-#{$ext}-#{$i}
         flex-basis:  ($k * $i) - $spacer
 
-
-.layout-1
-  .grid
-    +mq(min,768px)
-      +cssGrid(60% 40%,1% )
-    +mq(min,1200px)
-      +cssGrid((40% 20% 20% 20%),1%)
-    +mq(min,1600px)
-      +cssGrid(25%,1%)
-
-
+/* grid for mobile devices resolution starts from 0 to 767px */
 +mq(max,767px)
   +grid(xs)
+/* grid for tablets min resolution starts from 768px till end */
 +mq(min,768px)
   +grid(md)
+/* grid for small screen desktop min resolution starts from 1025px till end */
 +mq(min,1025px)
   +grid(lg)
+/* grid for mid and big screen desktop min resolution starts from 1367px till end */
 +mq(min,1367px)
   +grid(xl)
