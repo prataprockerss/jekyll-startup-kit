@@ -11,11 +11,11 @@ sass:
 exclude: ['_site','static-pages','.sass-cache','design','designs']
 
 # SEO
-domain:
+domain: 
 metadescription:
 metakeyword:
-mainImg: images/site-seo.jpg
-title: Jekyll
+metaImg: images/site-seo.jpg
+title:
 
 # Tracking
 googleAnalyticsId :  # eg. 'UA-67098409-1' to genrate this code visit on analytics.google.com
@@ -25,7 +25,7 @@ googleAnalyticsId :  # eg. 'UA-67098409-1' to genrate this code visit on analyti
 
 # import external scripts and styles
 # if you have maked any property to true it will render on entire page.
-fontawesome: true  # http://fontawesome.io/
+fontawesome: false  # http://fontawesome.io/
 slick: false  # http://kenwheeler.github.io/slick/
 lazyload: false # http://jquery.eisbehr.de/lazy/
 jssocials: false # http://js-socials.com/
