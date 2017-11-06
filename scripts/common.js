@@ -6,7 +6,7 @@ $(window).load(function(){
 function showPageLoader(){
   $('.loader').show();
 }
-function hidePageLoader(){
+function hidePageLoader(){ 
   $('.loader').hide();
 }
 
