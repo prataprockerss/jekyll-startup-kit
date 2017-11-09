@@ -64,12 +64,7 @@
   @for $i from 1 through $count
     .clear#{$increment * $i}
       @extend %clear
-      height: $increment * $i+px
-
-
-
-
-
+      height: em($increment * $i)
 
 =socialMedia($ext, $prop...)
   @each $list in $prop
@@ -91,31 +86,138 @@
   &:nth-child(#{$col}n+#{$col})
     margin-right: 0
 
-
-
-
-
-
-
-=listItem($types...)
-  ol.list,
-  ul.list
-    margin-left: 27px
-    padding-bottom: 14px
-    font: rem(20) $sf
-    li
-      padding: 5px 0 5px 7px
-
-    &.bullet
-      margin-left: 10px
-      li
-        background: bg('bullet.png') no-repeat scroll left center rgba(0, 0, 0, 0)
-        padding: 5px 0 5px 18px
-
-  @each $listType in $types
-    ol.#{$listType},
-    ul.#{$listType}
-      li
-        list-style-type: $listType
-
   /*Session error message end*/
+=btn($type, $size, $clr:#000)
+  @if $type == 'close'
+    &.close
+      width: $size
+      height: $size
+      position: relative
+      @content
+      &:before,&:after
+        width: 80%
+        height: 2px
+        +vam
+        background-color: $clr
+        content: ''
+      &:before
+        +transform(translate(-50%,-50%) rotate(45deg))
+      &:after
+        +transform(translate(-50%,-50%) rotate(-45deg))
+
+=fa($code)
+  font-family: $fa
+  content: $code
+  @content
+
+=color-varient($bg:false,$color:false,$hover:false,$prefix:false)
+  @if ($prefix)
+    .#{$prefix}-primary
+      @if ($bg)
+        background-color: $primary
+        color: $primary-color
+      @if ($color)
+        color: $primary
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($primary, 10%)
+    .#{$prefix}-secondary
+      @if ($bg)
+        background-color: $secondary
+        color: $secondary-color
+      @if ($color)
+        color: $secondary
+      @if ($hover)
+        &.active,&:hover
+          background-color: lighten($secondary, 10)
+    .#{$prefix}-success
+      @if ($bg)
+        background-color: $success
+        color: $success-color
+      @if ($color)
+        color: $success
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($success, 10%)
+    .#{$prefix}-danger
+      @if ($bg)
+        background-color: $danger
+        color: $danger-color
+      @if ($color)
+        color: $danger
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($danger, 10%)
+    .#{$prefix}-alert
+      @if ($bg)
+        background-color: $alert
+        color: $alert-color
+      @if ($color)
+        color: $alert
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($alert, 10%)
+    .#{$prefix}-warning
+      @if ($bg)
+        background-color: $warning
+        color: $warning-color
+      @if ($color)
+        color: $warning
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($warning, 10%)
+  @else
+    &.primary
+      @if ($bg)
+        background-color: $primary
+        color: $primary-color
+      @if ($color)
+        color: $primary
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($primary, 10%)
+    &.secondary
+      @if ($bg)
+        background-color: $secondary
+        color: $secondary-color
+      @if ($color)
+        color: $secondary
+      @if ($hover)
+        &.active,&:hover
+          background-color: lighten($secondary, 10)
+    &.success
+      @if ($bg)
+        background-color: $success
+        color: $success-color
+      @if ($color)
+        color: $success
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($success, 10%)
+    &.danger
+      @if ($bg)
+        background-color: $danger
+        color: $danger-color
+      @if ($color)
+        color: $danger
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($danger, 10%)
+    &.alert
+      @if ($bg)
+        background-color: $alert
+        color: $alert-color
+      @if ($color)
+        color: $alert
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($alert, 10%)
+    &.warning
+      @if ($bg)
+        background-color: $warning
+        color: $warning-color
+      @if ($color)
+        color: $warning
+      @if ($hover)
+        &.active,&:hover
+          background-color: darken($warning, 10%)

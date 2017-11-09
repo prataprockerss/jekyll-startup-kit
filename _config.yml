@@ -14,7 +14,7 @@ exclude: ['_site','static-pages','.sass-cache','design','designs']
 domain:
 metadescription:
 metakeyword:
-metaImg: images/site-seo.jpg
+metaImg: images/site-seo.jpg #this must be 1200x650
 title:
 
 # Tracking

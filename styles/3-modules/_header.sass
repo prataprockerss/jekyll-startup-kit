@@ -1,15 +1,14 @@
+$headerBg: #fff
+
 .header
-  +clearfix
-  +box-shadow(0 0 10px bgc($pc,.5))
+  background-color: $headerBg
+  padding: em(10) 0
+  .container
+    +mq(min,1024px)
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      justify-content: space-between
+      align-items: center
   .logo
-    float: left
     max-width: 100px
-    padding: em(5) 0
-  .nav
-    float: right
-    padding: em(23px) 0
-    li
-      float: left
-      padding: 0 em(10)
-      font-size: em(16px)
-      font-weight: 300

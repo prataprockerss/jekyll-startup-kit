@@ -1,9 +1,14 @@
-.header
-  .toggle-btn
-    
-  .nav
-    li
-      a
-        text-transform: uppercase
-        font-size: em(14)
-        display: block
+.nav
+  ul
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+  li
+    padding: 0 em(10)
+    &:last-child
+      padding-right: 0
+    a
+      display: block
+      text-transform: uppercase
+      &.active,&:hover
+        color: $primary

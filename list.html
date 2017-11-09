@@ -1,0 +1,23 @@
+---
+layout: main
+title: Listing Page
+pageClass: listing-page
+---
+
+<ul class="page-list">
+  {% for page in site.pages %}
+    {% if page.layout %}
+      {% if page.title != 'Listing Page' %}
+        <li>
+          <div class="heading">
+            {{page.title}}
+          </div>
+          <div class="cta">
+            <a href="{{page.name}}"  target="_blank">html </a>
+            <a href="images/designs/{{page.title | slugify }}.jpg" target="_blank">Design</a>
+          </div>
+        </li>
+      {% endif%}
+    {% endif%}
+  {% endfor%}
+</ul>

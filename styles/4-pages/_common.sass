@@ -1,0 +1,29 @@
+.wrapper
+  &.dashboard
+    .main-cnt
+      width: 100%
+  &.nav-opened
+    +mq(max,1023px)
+      .toggle-btn
+        span
+          background-color: transparent
+          &:before,&:after
+            top: 0
+          &:before
+            +transform(rotate(45deg))
+          &:after
+            +transform(rotate(-45deg))
+      .nav
+        left: 0
+.content-area
+  padding: em(20) 0
+  .container
+    background-color: #fff
+    +box-shadow(0 0 em(20) #eee)
+.code-ref
+  padding: em(40) 0
+  >header
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    justify-content: space-between

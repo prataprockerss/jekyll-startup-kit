@@ -1,21 +1,24 @@
 <header class="header">
+  <div class="toggle-btn">
+    <span></span>
+  </div>
   <div class="container">
     <div class="logo">
-      <a href="/">
-        <img src="{{site.basurl}} /images/logo.png" alt="">
+      <a href="index.html">
+        <img src="images/logo.png" alt="">
       </a>
-    </div>
-    <div class="toggle-btn">
-      <span></span>
     </div>
     <div class="nav">
       <ul>
-        <li>
-          <a href="/index.html" class="{% if page.url == '/index.html' %} current {% endif %}">Home</a>
-        </li>
-        <li>
-          <a href="/blog">Blog</a>
-        </li>
+        {% for page in site.pages %}
+          {% if page.layout %}
+            {% if page.title != 'Listing Page' %}
+              <li>
+                <a href="{{page.name}}" {% if page.name  == page.title %}class="active"{% endif %}>{{page.title}}</a>
+              </li>
+            {% endif%}
+          {% endif%}
+        {% endfor%}
       </ul>
     </div>
   </div>

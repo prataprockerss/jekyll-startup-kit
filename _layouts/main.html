@@ -3,5 +3,9 @@ layout: default
 ---
 
 {% include header.html %}
-  {{content}}
+  <div class="content-area {{page.contentAreaClass}}">
+    <div class="container">
+      {{ content }}
+    </div>
+  </div>
 {% include footer.html %}
